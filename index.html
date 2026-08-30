@@ -26,12 +26,26 @@ section{padding:92px 0}.section-top{display:flex;justify-content:space-between;g
 form{background:#fff;color:var(--ink);padding:28px;border-radius:20px;display:grid;gap:12px}input,textarea,select{width:100%;font:inherit;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#fff}textarea{min-height:115px;resize:vertical}form button{border:0;padding:14px;border-radius:10px;background:var(--ink);color:#fff;font-weight:850;cursor:pointer}
 .contact{background:#fff}.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.contact-box{border:1px solid var(--line);border-radius:18px;padding:25px}.contact-box h3{margin:0 0 6px}.contact-box p{margin:0;color:var(--muted)}.social{font-weight:800;color:var(--ink)}
 footer{padding:28px 0;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+
+.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.category-card{padding:0;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;text-align:left;cursor:pointer}
+.category-card img{width:100%;height:360px;object-fit:cover;display:block;transition:transform .35s ease}
+.category-card span{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:18px}
+.category-card small{grid-row:1/3;color:var(--accent);font-weight:900}
+.category-card b{font-size:1.15rem}
+.category-card em{font-style:normal;color:var(--accent);font-weight:800;font-size:.86rem}
+@media(hover:hover){.category-card:hover img{transform:scale(1.035)}}
+.category-modal-box{padding:30px}.category-modal-box h3{font-size:2rem;margin:0 0 6px}.modal-description{color:var(--muted);margin-top:0}
+.project-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.project-tile{padding:0;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#fff;text-align:left;cursor:pointer}
+.project-tile img{width:100%;height:190px;object-fit:cover;display:block}.project-tile span{display:block;padding:13px 14px}.project-tile b{display:block}.project-tile small{color:var(--accent);font-weight:800}
+
 .modal{display:none;position:fixed;inset:0;z-index:50;padding:20px;align-items:center;justify-content:center}.modal.open{display:flex}.modal-backdrop{position:absolute;inset:0;background:rgba(4,10,15,.78)}
 .modal-box{position:relative;z-index:1;width:min(920px,100%);max-height:92%;overflow:auto;background:#fff;border-radius:22px;padding:18px}.modal-main{background:#0c141b;border-radius:15px;display:grid;place-items:center;min-height:280px;max-height:62vh;overflow:hidden}.modal-main img{width:100%;height:62vh;object-fit:contain}
 .modal-close{position:absolute;right:12px;top:12px;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);font-size:28px;line-height:1;z-index:2;border:1px solid var(--line);cursor:pointer}.modal-info{display:flex;justify-content:space-between;gap:30px;align-items:end;padding:18px 5px 10px}.modal-info h3{margin:0;font-size:1.55rem}.modal-info p{max-width:520px;color:var(--muted);margin:0}.thumbs{display:flex;gap:10px;overflow-x:auto;padding:10px 5px 5px}.thumb{flex:0 0 82px;height:64px;padding:0;border:2px solid transparent;border-radius:9px;overflow:hidden;background:#eee;cursor:pointer}.thumb.active{border-color:var(--accent)}.thumb img{width:100%;height:100%;object-fit:cover}
 @media(hover:hover){.project:hover img{transform:scale(1.035)}}
-@media(max-width:850px){.navlinks{display:none}.intro,.quote-grid{grid-template-columns:1fr}.project-grid{grid-template-columns:1fr 1fr}.hardware-grid{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}.section-top{display:block}.section-top .lead{margin-top:15px}}
-@media(max-width:500px){h1{letter-spacing:-3px}.hero-inner{padding:90px 0 55px}section{padding:65px 0}.project-grid{grid-template-columns:1fr}.hardware-grid{grid-template-columns:1fr}}
+@media(max-width:850px){.navlinks{display:none}.intro,.quote-grid{grid-template-columns:1fr}.category-grid{grid-template-columns:1fr 1fr}.project-list{grid-template-columns:1fr 1fr}.hardware-grid{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}.section-top{display:block}.section-top .lead{margin-top:15px}}
+@media(max-width:500px){h1{letter-spacing:-3px}.hero-inner{padding:90px 0 55px}section{padding:65px 0}.category-grid,.project-list{grid-template-columns:1fr}.category-card img{height:300px}.hardware-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -44,20 +58,45 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:.85rem;color:va
 
 <section style="padding:42px 0;background:#eceae4"><div class="container" style="text-align:center;max-width:800px"><div class="kicker" style="color:var(--accent)">A Glass Lab thought</div><p style="font-family:Georgia,serif;font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.25;margin:0">“Good glass doesn’t just fill a space. It changes how the space feels.”</p></div></section>
 
-<section id="works"><div class="container"><div class="section-top"><div><div class="kicker" style="color:var(--accent)">Selected work</div><h2>Made for real spaces.</h2></div><p class="lead">Choose a project to see more photographs. Each project has a main image and additional views.</p></div>
-<div class="project-grid">
-<button class="project" type="button" data-project="architectural"><img src="work-1.jpeg" alt="Architectural glass project"><span><b>Architectural Glass</b><small>View project →</small></span></button>
-<button class="project" type="button" data-project="stained"><img src="work-9.png" alt="Stained glass work"><span><b>Stained Glass</b><small>View project →</small></span></button>
-<button class="project" type="button" data-project="mirror"><img src="work-7.jpeg" alt="Customized mirror"><span><b>Customized Mirrors</b><small>View project →</small></span></button>
-<button class="project" type="button" data-project="works"><img src="work-2.jpeg" alt="Glass staircase project"><span><b>Our Works</b><small>View project →</small></span></button>
-</div>
-<div class="gallery-note"><strong>More projects?</strong> Each category can grow with a main photo plus several additional photos.</div></div></section>
+<section id="works"><div class="container">
+<div class="section-top"><div><div class="kicker" style="color:var(--accent)">Our portfolio</div><h2>Selected work.</h2></div></div>
 
-<section><div class="container"><div class="section-top"><div><div class="kicker" style="color:var(--accent)">Specialities</div><h2>Three directions.</h2></div></div><div class="project-grid">
-<button class="project" type="button" data-project="stained"><img src="work-9.png" alt="Stained glass"><span><b>Stained Glass Works</b><small>Explore →</small></span></button>
-<button class="project" type="button" data-project="mirror"><img src="work-8.jpeg" alt="Customized mirror"><span><b>Customized Mirrors</b><small>Explore →</small></span></button>
-<button class="project" type="button" data-project="works"><img src="work-3.jpeg" alt="Our works"><span><b>Our Works</b><small>Explore →</small></span></button>
-</div></div></section>
+<div class="category-grid">
+  <button class="category-card" type="button" data-category="stained">
+    <img src="work-9.png" alt="Stained glass work">
+    <span><small>01</small><b>Stained Glass</b><em>Explore projects →</em></span>
+  </button>
+  <button class="category-card" type="button" data-category="mirrors">
+    <img src="work-7.jpeg" alt="Customized mirror">
+    <span><small>02</small><b>Customized Mirrors</b><em>Explore projects →</em></span>
+  </button>
+  <button class="category-card" type="button" data-category="works">
+    <img src="work-1.jpeg" alt="Architectural glass work">
+    <span><small>03</small><b>Our Works</b><em>Explore projects →</em></span>
+  </button>
+</div>
+</div></section>
+
+<div class="modal" id="categoryModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-category></div>
+  <div class="modal-box category-modal-box" role="dialog" aria-modal="true" aria-labelledby="categoryTitle">
+    <button class="modal-close" type="button" aria-label="Close" data-close-category>×</button>
+    <div class="kicker" style="color:var(--accent)">Portfolio</div>
+    <h3 id="categoryTitle">Projects</h3>
+    <p id="categoryDescription" class="modal-description"></p>
+    <div class="project-list" id="projectList"></div>
+  </div>
+</div>
+
+<div class="modal" id="projectModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-project></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" type="button" aria-label="Close" data-close-project>×</button>
+    <div class="modal-main"><img id="modalMain" src="" alt=""></div>
+    <div class="modal-info"><div><div class="kicker" style="color:var(--accent)">Glass Lab</div><h3 id="modalTitle">Project</h3></div><p id="modalDescription"></p></div>
+    <div class="thumbs" id="modalThumbs"></div>
+  </div>
+</div>
 
 <section style="padding:42px 0;background:var(--paper)"><div class="container" style="text-align:center;max-width:720px"><p style="font-family:Georgia,serif;font-size:1.45rem;line-height:1.3;margin:0">“Simple lines. Precise details. Timeless results.”</p></div></section>
 
@@ -74,19 +113,121 @@ footer{padding:28px 0;border-top:1px solid var(--line);font-size:.85rem;color:va
 <div class="modal" id="projectModal" aria-hidden="true"><div class="modal-backdrop" data-close-modal></div><div class="modal-box" role="dialog" aria-modal="true"><button class="modal-close" type="button" aria-label="Close" data-close-modal>×</button><div class="modal-main"><img id="modalMain" src="" alt=""></div><div class="modal-info"><div><div class="kicker" style="color:var(--accent)">Glass Lab</div><h3 id="modalTitle">Project</h3></div><p id="modalDescription"></p></div><div class="thumbs" id="modalThumbs"></div></div></div>
 
 <script>
-const projectData={
-architectural:{title:"Architectural Glass",description:"Glass railings, partitions, staircases and architectural installations.",images:["work-1.jpeg","work-2.jpeg","work-3.jpeg","work-4.jpeg"]},
-stained:{title:"Stained Glass Works",description:"Custom stained-glass pieces and decorative work.",images:["work-9.png","work-10.jpg"]},
-mirror:{title:"Customized Mirrors",description:"Distinctive mirrors made for individual spaces and interiors.",images:["work-7.jpeg","work-8.jpeg"]},
-works:{title:"Our Works",description:"A selection of completed Glass Lab projects.",images:["work-2.jpeg","work-3.jpeg","work-4.jpeg","work-1.jpeg"]}
+/*
+  FUTURE PHOTO SETUP:
+  Add a new project by adding one object to the correct category below.
+  Each project has a main image plus any number of extra images.
+*/
+const portfolio={
+  stained:{
+    title:"Stained Glass",
+    description:"Custom stained-glass pieces and decorative work.",
+    projects:[
+      {title:"Stained Glass Project 01",cover:"work-9.png",description:"A selected stained-glass piece.",images:["work-9.png","work-10.jpg"]},
+      {title:"Stained Glass Project 02",cover:"work-10.jpg",description:"Another stained-glass design.",images:["work-10.jpg"]}
+    ]
+  },
+  mirrors:{
+    title:"Customized Mirrors",
+    description:"Distinctive mirrors made for individual spaces and interiors.",
+    projects:[
+      {title:"Customized Mirror 01",cover:"work-7.jpeg",description:"A custom mirror designed for a statement interior.",images:["work-7.jpeg","work-8.jpeg"]},
+      {title:"Customized Mirror 02",cover:"work-8.jpeg",description:"A bespoke mirror design.",images:["work-8.jpeg"]}
+    ]
+  },
+  works:{
+    title:"Our Works",
+    description:"A selection of completed Glass Lab projects.",
+    projects:[
+      {title:"Architectural Glass 01",cover:"work-1.jpeg",description:"Architectural glass installation.",images:["work-1.jpeg","work-2.jpeg","work-3.jpeg","work-4.jpeg"]},
+      {title:"Architectural Glass 02",cover:"work-2.jpeg",description:"Glass staircase and railing work.",images:["work-2.jpeg","work-3.jpeg"]},
+      {title:"Architectural Glass 03",cover:"work-4.jpeg",description:"A completed glass installation.",images:["work-4.jpeg","work-1.jpeg"]}
+    ]
+  }
 };
-const modal=document.getElementById("projectModal"),mainImg=document.getElementById("modalMain"),titleEl=document.getElementById("modalTitle"),descEl=document.getElementById("modalDescription"),thumbs=document.getElementById("modalThumbs");
-function openProject(key){const p=projectData[key];if(!p)return;titleEl.textContent=p.title;descEl.textContent=p.description;thumbs.innerHTML="";p.images.forEach((src,i)=>{const b=document.createElement("button");b.type="button";b.className="thumb"+(i===0?" active":"");const im=document.createElement("img");im.src=src;im.alt=p.title+" photo "+(i+1);b.appendChild(im);b.addEventListener("click",()=>{mainImg.src=src;mainImg.alt=im.alt;document.querySelectorAll(".thumb").forEach(x=>x.classList.remove("active"));b.classList.add("active")});thumbs.appendChild(b)});mainImg.src=p.images[0];mainImg.alt=p.title+" main photo";modal.classList.add("open");modal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
-function closeProject(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.style.overflow=""}
-document.querySelectorAll("[data-project]").forEach(b=>b.addEventListener("click",()=>openProject(b.dataset.project)));
-document.querySelectorAll("[data-close-modal]").forEach(x=>x.addEventListener("click",closeProject));
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&modal.classList.contains("open"))closeProject()});
-function sendWhatsApp(e){e.preventDefault();const n=document.getElementById("name").value,p=document.getElementById("phone").value,i=document.getElementById("interest").value,d=document.getElementById("details").value;const t=`Hello Glass Lab,%0A%0AName: ${encodeURIComponent(n)}%0APhone: ${encodeURIComponent(p)}%0AEnquiry: ${encodeURIComponent(i)}%0ADetails: ${encodeURIComponent(d)}`;window.open(`https://wa.me/918606093588?text=${t}`,"_blank")}
+
+const categoryModal=document.getElementById("categoryModal");
+const projectModal=document.getElementById("projectModal");
+const categoryTitle=document.getElementById("categoryTitle");
+const categoryDescription=document.getElementById("categoryDescription");
+const projectList=document.getElementById("projectList");
+const modalMain=document.getElementById("modalMain");
+const modalTitle=document.getElementById("modalTitle");
+const modalDescription=document.getElementById("modalDescription");
+const modalThumbs=document.getElementById("modalThumbs");
+
+function showCategory(key){
+  const category=portfolio[key];
+  if(!category)return;
+  categoryTitle.textContent=category.title;
+  categoryDescription.textContent=category.description;
+  projectList.innerHTML="";
+  category.projects.forEach((project,index)=>{
+    const button=document.createElement("button");
+    button.type="button";
+    button.className="project-tile";
+    button.innerHTML=`<img src="${project.cover}" alt="${project.title}"><span><b>${project.title}</b><small>${project.images.length} photo${project.images.length===1?"":"s"} · View →</small></span>`;
+    button.addEventListener("click",()=>showProject(category,project));
+    projectList.appendChild(button);
+  });
+  categoryModal.classList.add("open");
+  categoryModal.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+}
+
+function showProject(category,project){
+  modalTitle.textContent=project.title;
+  modalDescription.textContent=project.description;
+  modalThumbs.innerHTML="";
+  project.images.forEach((src,index)=>{
+    const b=document.createElement("button");
+    b.type="button";
+    b.className="thumb"+(index===0?" active":"");
+    const im=document.createElement("img");
+    im.src=src; im.alt=project.title+" photo "+(index+1);
+    b.appendChild(im);
+    b.addEventListener("click",()=>{
+      modalMain.src=src; modalMain.alt=im.alt;
+      modalThumbs.querySelectorAll(".thumb").forEach(x=>x.classList.remove("active"));
+      b.classList.add("active");
+    });
+    modalThumbs.appendChild(b);
+  });
+  modalMain.src=project.images[0];
+  modalMain.alt=project.title+" main photo";
+  categoryModal.classList.remove("open");
+  categoryModal.setAttribute("aria-hidden","true");
+  projectModal.classList.add("open");
+  projectModal.setAttribute("aria-hidden","false");
+}
+
+function closeCategory(){
+  categoryModal.classList.remove("open");
+  categoryModal.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+function closeProject(){
+  projectModal.classList.remove("open");
+  projectModal.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+
+document.querySelectorAll("[data-category]").forEach(b=>b.addEventListener("click",()=>showCategory(b.dataset.category)));
+document.querySelectorAll("[data-close-category]").forEach(x=>x.addEventListener("click",closeCategory));
+document.querySelectorAll("[data-close-project]").forEach(x=>x.addEventListener("click",closeProject));
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){
+    if(projectModal.classList.contains("open"))closeProject();
+    else if(categoryModal.classList.contains("open"))closeCategory();
+  }
+});
+
+function sendWhatsApp(e){
+ e.preventDefault();
+ const n=document.getElementById("name").value,p=document.getElementById("phone").value,i=document.getElementById("interest").value,d=document.getElementById("details").value;
+ const t=`Hello Glass Lab,%0A%0AName: ${encodeURIComponent(n)}%0APhone: ${encodeURIComponent(p)}%0AEnquiry: ${encodeURIComponent(i)}%0ADetails: ${encodeURIComponent(d)}`;
+ window.open(`https://wa.me/918606093588?text=${t}`,"_blank");
+}
 </script>
 </body>
 </html>
